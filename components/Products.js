@@ -4,7 +4,7 @@ const Products = (props)=>{
   
         <div className="card mb-3 mr-4">
   <h3 className="card-header text-center">{products.name}</h3>
-  <img src={products.images[0].src} alt={products.name} 
+  <img src={products.image.sourceUrl} alt={products.name} 
 //   style={{height:"200px", width:"100px", display:"block"}}
   />
   <div className="card-body">

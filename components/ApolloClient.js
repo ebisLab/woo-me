@@ -1,15 +1,27 @@
 import fetch from 'node-fetch';
-import {ApolloClient} from 'apollo-boost';
-import {InMemoryCache} from 'apollo-cache-inmemory'
-import {createHttpLink} from 'apollo-link-http';
 import clientConfig from './../client-config'
 
+import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
+
+import {ErrorLink, onError} from '@apollo/client/link/error'
+
+//error catching system
+const errorLink = onError(({graphqlErrors, networkError})=>{
+    if(graphqlErrors){
+        graphqlErrors.map(({message, location, path})=>{
+            alert(`Graphql errors here--> ${message}`)
+        })
+    }
+})
+
+
+const link = from([
+    errorLink,
+    new HttpLink({uri: clientConfig.graphqlUrl})
+])
 const client = new ApolloClient({
-    link:createHttpLink({
-        uri:clientConfig.graphqlUrl, 
-        fetch:fetch
-    }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    link:link,
 })
 
 export default client
