@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import clientConfig from '../client-config'
+
 import axios from 'axios'
 
 import fetch from  'isomorphic-unfetch'
@@ -11,10 +12,12 @@ const Index=(props)=>{
     return (
         <div>
             <Layout>
+                <div className="product-container">
                 {products.length?(
                     products.map(item=><Products key={item.id} products={item}/>)
 
                 ):''}
+                </div>
                 
                 </Layout>
         </div>
