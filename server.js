@@ -25,7 +25,6 @@ app.prepare()
     //GET REQUEST
     server.get('/getProducts', (req,response)=>{
         WooCommerce.get('products', (err,data,res)=>{
-            // console.log(res)
             response.json(JSON.parse(res));
         })
 

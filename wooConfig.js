@@ -1,7 +1,9 @@
 const wooConfig ={
-    siteUrl: 'http://woo.ebislab.com/',
-    consumerKey:'ck_2915e104eab1920661dca9b18d7e85bb5d4bdd43',
-    consumerSecret:'cs_4108a928f28aad61ec7848049223e2e669bc5182'
+    siteUrl: 'http://woo-me.ebislab.com/wp',
+    consumerKey:'ck_e618eea2cf249e46379742510159e96376965be9',
+    consumerSecret:'cs_d6fd61aa68743adfad295eac236bd8b9987e1521'
 }
 
 module.exports = wooConfig
+
+// export default wooConfig

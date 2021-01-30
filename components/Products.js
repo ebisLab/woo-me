@@ -2,10 +2,9 @@ const Products = (props)=>{
     const {products}=props
     return (
   
-        <div className="card mb-3 mr-4">
+        <div className="card mb-3 md-4" style={{width:"300px", margin:"20px", display:"inline-flex"}}>
   <h3 className="card-header text-center">{products.name}</h3>
   <img src={products.image.sourceUrl} alt={products.name} 
-//   style={{height:"200px", width:"100px", display:"block"}}
   />
   <div className="card-body">
     <h6 className="card-subtitle text-muted">${products.price}</h6>

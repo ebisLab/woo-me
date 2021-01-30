@@ -1,5 +1,5 @@
 {
-  "name": "woo-next",
+  "name": "woo-less",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,10 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.3.7",
+    "@vercel/client": "^9.0.5",
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-link-http": "^1.5.17",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.11.0",

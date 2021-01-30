@@ -1,11 +1,5 @@
-// const withCSS = require('@zeit/next-css')
-// module.exports = withCSS({
-//     cssModules:true
-// })
-
 const path = require("path");
 module.exports = {
-    // trailingSlash: true,
     webpackDevMiddleware: (config) => {
         config.watchOptions = {
             poll: 1000,
@@ -17,4 +11,7 @@ module.exports = {
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")],
     },
+    env:{
+        NEXT_PUBLIC_SITE_URL:process.env.NEXT_PUBLIC_SITE_URL
+    }
 };
