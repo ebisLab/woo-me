@@ -7,7 +7,7 @@ const Products = (props)=>{
   <img src={products.image.sourceUrl} alt={products.name} 
   />
   <div className="card-body">
-    <h6 className="card-subtitle text-muted">${products.price}</h6>
+    <h6 className="card-subtitle text-muted">{products.price}</h6>
     
     <div className="text-center">
     <button type="button" className="btn btn-success text-center">View</button>
