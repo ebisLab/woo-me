@@ -5,5 +5,11 @@
             "src": "package.json",
             "use": "@vercel/next"
         }
+    ],
+    "routes": [
+        {
+            "src": "/product/(?<slug>[^/]+)$",
+            "dest": "/product?slug=$slug"
+        }
     ]
 }

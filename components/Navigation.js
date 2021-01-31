@@ -1,3 +1,4 @@
+import Link from 'next/link';
 const Navigation =()=>{
 return (
 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -6,17 +7,19 @@ return (
   <ul className="navbar-nav mr-auto">
     <li className="nav-item active">
       <a className="nav-link" href="#">Home
-        <span className="sr-only">(current)</span>
+        {/* <Link>
+        <a className="nav-link" href="/">Woo next</a>
+        </Link> */}
       </a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">Features</a>
+      <a className="nav-link" href="#">Categories</a>
     </li>
     <li className="nav-item">
       <a className="nav-link" href="#">Pricing</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">About</a>
+      <a className="nav-link" href="#">My Account</a>
     </li>
     <li className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
