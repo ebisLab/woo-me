@@ -1,16 +1,11 @@
 {
-    "routes": [
+    "version": 2,
+    "name": "woo-less",
+    "alias": "woo-less",
+    "builds": [
         {
-            "src": "/",
-            "dest": "/server.js"
-        },
-        {
-            "src": "/getProducts",
-            "methods": [
-                "POST",
-                "GET"
-            ],
-            "dest": "/server.js"
+            "src": "package.json",
+            "use": "@vercel/next"
         }
     ]
 }
