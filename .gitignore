@@ -4,3 +4,4 @@ npm-debug.log
 .env-local
 .DS_Store
 .db3
+.vercel
