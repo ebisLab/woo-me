@@ -5,10 +5,24 @@ import gql from 'graphql-tag';
 
 const Product = (props)=>{
     console.log("PROPS", props)
+    const {product}=props
     return(
         <div>
-            product
             {/* query */}
+            <Layout>
+                {product?(
+                    <div className="card bg-light mb-3 p-5">
+                        <div className="card-header">{product.name}</div>
+                        <div className="card-body">
+                            <h4>{product.name}</h4>
+                            <img src={product.image.sourceUrl} width="200px" alt={product.name} srcSet={product.image.srcSet}/>
+                            <p className="card-text">{product.description}</p>
+                        </div>
+
+
+                    </div>
+                ):''}
+                </Layout>
 
         </div>
     )
@@ -19,7 +33,6 @@ Product.getInitialProps = async (context)=>{ //context comes from server side, b
     let {query:{slug}}=context;
     const id=slug? parseInt(slug.split('-').pop()): context.query.id //parseInt(slug.split('-')) used to split words or numbers that are separeted with space or any symbols like "-"
 
-    console.log("trying to get initial props")
     //Graphql Query
 
     const PRODUCT_QUERY = gql` query Product($id: ID!){

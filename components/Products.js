@@ -4,7 +4,9 @@ const Products = (props)=>{
     const {products}=props
     return (
   
-        <div className="card mb-3 md-4" style={{width:"300px", margin:"20px", display:"inline-flex"}}>
+        <div className="card mb-3 md-4" 
+        // style={{width:"300px", margin:"20px", display:"inline-flex"}}
+        >
   <h3 className="card-header text-center">{products.name}</h3>
   <Link as={`/product/${products.slug}-${products.productId}`} href={`/product?slug=${products.slug}-${products.productId}`}>
     <a>
@@ -16,7 +18,7 @@ const Products = (props)=>{
 
   
   <div className="card-body">
-    <h6 className="card-subtitle text-muted">{products.price}</h6>
+    <h6 className="card-subtitle mb-3">{products.price}</h6>
     
     {/* <div className="text-center">
     <button type="button" className="btn btn-success text-center">View</button>
