@@ -5,3 +5,5 @@ const CartHello=()=>{
         </div>
     )
 }
+
+export default CartHello
