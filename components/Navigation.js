@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CartIcon from './cart/CartIcon';
 const Navigation =()=>{
 return (
 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -38,6 +39,7 @@ return (
       </div>
     </li>
   </ul>
+  <CartIcon />
 
 </div>
 

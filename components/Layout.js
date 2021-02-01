@@ -8,6 +8,7 @@ const Layout =(props)=>{
             <div>
             <Head>
                 <title>WooCommerce React Theme</title>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
                 <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css"/>
 
             </Head>
