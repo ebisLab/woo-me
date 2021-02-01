@@ -51,7 +51,7 @@ const Index=(props)=>{
 
 }
 
-// hello
+// hello rom the other side
 //get static props
 //revalidate
 
