@@ -6,6 +6,8 @@ import { addFirstProduct, updateCart } from '../../function';
 const AddToCartButton =(props)=>{
     const {product}=props
     const [cart, setCart]=useContext(AppContext);
+    const [showViewCart, setShowViewCart]=useState(false)
+
 
     const handleAddToCartClick=()=>{
         if(process.browser){
@@ -26,11 +28,15 @@ const AddToCartButton =(props)=>{
                 setCart(newCart)
             }
         }
-        console.log("hello there")
+        setShowViewCart(true)
     }
     return(
         <>
         <button onClick={handleAddToCartClick} className="btn btn-secondary">Add to cart</button>
+        {showViewCart?(<Link href="/cart">
+            <button className="woo-next-view-cart-btn btn btn-secondary" style={{marginLeft:"5px"}}>View Cart</button>
+
+        </Link>):''}
         </>
     )
 }

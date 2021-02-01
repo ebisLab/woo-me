@@ -51,19 +51,19 @@ const Index=(props)=>{
 
 }
 
+// hello
+//get static props
+//revalidate
+
 Index.getInitialProps = async () =>{
     //isomorphic unfetch
     // const res = await fetch(`${clientConfig.siteUrl}/getProducts`);
     // const productsData = await res.json();
 
-    // return {
-    //     products: productsData
-    // }
     const res = await client.query({query:PRODUCTS_QUERY});
     return {
         products:res.data.products.edges
     }
-
-
 }
+
 export default Index;
