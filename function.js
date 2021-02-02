@@ -1,15 +1,11 @@
 export const getFloatval =(string)=>{
-    console.log("string", string)
-
     let floatValue = string.match( /[+-]?\d+(\.\d+)?/g )[0];
-	return (null !== floatValue)? parseFloat( parseFloat( floatValue ).toFixed( 2 ) ) : '';
+ return (null !== floatValue)? parseFloat( parseFloat( floatValue ).toFixed(2) ) : '';
 }
 
 export const addFirstProduct=(product)=>{
     console.log('heey from inside the addproduct')
     let productPrice = getFloatval(product.price)
-
-
     //if no item in the cart, create an n empty array and pushe the item
 
     let newCart ={
@@ -28,19 +24,22 @@ return newCart
 
 
 export const createNewProduct =(product, productPrice, qty)=>{
+    console.log("create new prod", parseFloat((productPrice * qty).toFixed(2)))
     return{
         productId: product.productId,
         image:product.image,
         name:product.name,
         price:productPrice,
         qty: qty,
-        totalPrice: parseFloat((productPrice * qty).toFixed(2))
+        totalPrice: parseFloat((productPrice * qty))
     }
 }
 
 export const updateCart= (existingCart, product, qtyToBeAdded, newQty=false)=>{
     const updatedProducts = getUpdatedProducts(existingCart.products, product, qtyToBeAdded, newQty);
     const addPrice = (total, item)=>{
+        console.log("ADDING PRICE", total.totalPrice)
+        // console.log("adding ITEM price", item.totalPrice)
         total.totalPrice += item.totalPrice;
         total.qty+= item.qty
 
@@ -48,8 +47,12 @@ export const updateCart= (existingCart, product, qtyToBeAdded, newQty=false)=>{
     }
 
     //loop thtrough the update produt array and add the totalPrice of each item to get the totalPrice.
+    console.log("updated products before reduce",updatedProducts)
+
     let total = updatedProducts.reduce(addPrice, {totalPrice:0, qty:0})
 
+    console.log("updated cart", total.totalPrice)
+    console.log("total so far", total)
     //updated card
     const updatedCart ={
         products: updatedProducts,
@@ -90,10 +93,9 @@ updatedProduct.totalPrice = parseFloat(updatedProduct.price * updatedProduct.qty
 
 }
 
-//return indes of the product if it exists
+//return indexs of the product if it exists
 
 export const isProductInCart=(existingProductsInCart, productId)=>{
-    console.log("hee hee", existingProductsInCart, productId)
     const returnItemThatExists = (item, index)=>{
         if(productId === item.productId){
             return item;
@@ -101,6 +103,6 @@ export const isProductInCart=(existingProductsInCart, productId)=>{
 
     }
     const newArray = existingProductsInCart.filter(returnItemThatExists);
-    return existingProductsInCart.indexOf(newArray[0]);
+    return existingProductsInCart.indexOf(newArray[0]); //will give me the position
 
 }

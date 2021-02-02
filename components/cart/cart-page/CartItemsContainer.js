@@ -4,6 +4,9 @@ import CartItem from "./CartItem"
 
 const CartItemsContainer =()=>{
     const [cart, setCart]=useContext(AppContext)
+    const handleRemoveProductClick=()=>{
+        console.log("clicky me")
+    }
     return(
         <div>
             {cart ?(
@@ -27,6 +30,7 @@ const CartItemsContainer =()=>{
                                 key={item.productId}
                                 item={item}
                                 setCart={setCart}
+                                handleRemoveProductClick={handleRemoveProductClick}
                                 />
                             )))}
                         </tbody>

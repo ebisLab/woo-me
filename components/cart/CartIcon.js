@@ -27,3 +27,14 @@ const CartIcon =()=>{
 }
 
 export default CartIcon
+
+
+// const CartIcon =()=>{
+//     return(
+//         <div>
+//             hi
+//         </div>
+//     )
+// }
+
+// export default CartIcon

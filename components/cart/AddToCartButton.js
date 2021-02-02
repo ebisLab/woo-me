@@ -17,9 +17,9 @@ const AddToCartButton =(props)=>{
             if(existingCart){
                 //pull stuff out of existing cart, and convert to object (its in string format right now)
                 existingCart = JSON.parse(existingCart)
-                const qtyToBeApplied=1;
+                const qtyToBeAdded=1;
 
-                const updatedCart = updateCart(existingCart, product, qtyToBeApplied)
+                const updatedCart = updateCart(existingCart, product, qtyToBeAdded)
                 setCart(updatedCart)
             }else{
 
