@@ -106,3 +106,41 @@ export const isProductInCart=(existingProductsInCart, productId)=>{
     return existingProductsInCart.indexOf(newArray[0]); //will give me the position
 
 }
+
+export const removeItemFromCart = (productId)=>{
+    //get the existing cart data.
+
+    let existingCart = localStorage.getItem('woo-next-cart');
+    existingCart = JSON.parse(existingCart)
+
+    //if there is only 1 item in the cart. delete the cart. 
+    if (1=== existingCart.products.length){
+        localStorage.removeItem('woo-next-cart');
+        return null;
+    }
+    //check if product already exists in the cart 
+    const productExistsIndex = isProductInCart(existingCart.products, productId)
+
+    //if  product to be removed exists
+    if(-1 < productExistsIndex){
+        const productToBeRemoved = existingCart.products[productExistsIndex];
+        //quantity to be removed from the toal
+        const qtyToBeRemovedFromTotal = productToBeRemoved.qty
+        //price to be deducted from the total
+        const priceToBeDeductedFromTotal = productToBeRemoved.totalPrice
+
+        //remove that product from the array and update price and qty
+        //1. first remove the qty and the total
+        let updatedCart = existingCart;
+        updatedCart.products.splice(productExistsIndex)
+        updatedCart.totalProductsCount = updatedCart.totalProductsCount - qtyToBeRemovedFromTotal
+
+        updatedCart.totalProductsPrice = updatedCart.totalProductsPrice - priceToBeDeductedFromTotal
+
+        //update localstorage and store with new values
+        localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
+        return updatedCart
+    } else {
+        return existingCart
+    }
+}

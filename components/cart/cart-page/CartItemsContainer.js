@@ -1,11 +1,15 @@
 import { useContext } from "react"
+import { removeItemFromCart } from "../../../function"
 import { AppContext } from "../../context/AppContext"
 import CartItem from "./CartItem"
 
 const CartItemsContainer =()=>{
     const [cart, setCart]=useContext(AppContext)
-    const handleRemoveProductClick=()=>{
+    const handleRemoveProductClick=(e, productId)=>{
         console.log("clicky me")
+        const updateCart = removeItemFromCart(productId)
+        //update contex api
+        setCart(updateCart)
     }
     return(
         <div>
@@ -30,7 +34,7 @@ const CartItemsContainer =()=>{
                                 key={item.productId}
                                 item={item}
                                 setCart={setCart}
-                                handleRemoveProductClick={handleRemoveProductClick}
+                                handleRemoveProductClick={(e)=>handleRemoveProductClick(e, item.productId)}
                                 />
                             )))}
                         </tbody>

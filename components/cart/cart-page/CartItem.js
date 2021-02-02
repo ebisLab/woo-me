@@ -26,7 +26,7 @@ const CartItem=({item, setCart, handleRemoveProductClick})=>{
         <tr className="woo-next-cart-item" key={item.productId}>
             {/* cross icon image */}
             <th className="woo-next-cart-element woo-next-cart-el-close">
-                <span className="woo-next-cart-close-icon" onClick={(event)=>handleRemoveProductClick()}>
+                <span className="woo-next-cart-close-icon" onClick={handleRemoveProductClick}>
                     <i className="fa fa-times-circle"></i>
                 </span>
             </th>
