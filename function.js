@@ -80,7 +80,7 @@ export const getUpdatedProducts =(existingProductsInCart, product, qtyToBeAdded,
 
         //if we have the new qty of the product available, set that else add tohe qtyTobeadded
 updatedProduct.qty =(newQty)?parseInt(newQty):parseInt(updatedProduct.qty+qtyToBeAdded);
-updatedProduct.totalPrice = parseFloat(updatedProduct.price * updatedProduct.qty).toFixed(2)
+updatedProduct.totalPrice = parseFloat(updatedProduct.price * updatedProduct.qty)
    return updatedProducts
 }else{
     //if it doesnt exist, it's a new product

@@ -1,13 +1,22 @@
 import {useState} from 'react';
+import {updateCart} from '../../../function'
 
 const CartItem=({item, setCart, handleRemoveProductClick})=>{
     const [productCount, setProductCount]=useState(item.qty)
     const handleQtyChange=(e)=>{
         if(process.browser){ //since info is coming from the server side, make sure it's loaded in the client
             // const newQty = e.target.value
-            setProductCount(e.target.value)
+            const newQty =( e.target.value ) ? parseInt( e.target.value ) : 1;
+            setProductCount(newQty)
+            console.log("newqty", e.target.value)
 
+            let existingCart = localStorage.getItem('woo-next-cart')
+
+            //its in JSON string format, so we need to parse it
+            existingCart=JSON.parse(existingCart);
             //update the cart
+            const updatedCart=updateCart(existingCart, item, false, newQty)
+            setCart(updatedCart) //updated Global store
         }
         
 
