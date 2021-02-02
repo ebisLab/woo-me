@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { removeItemFromCart } from "../../../function"
 import { AppContext } from "../../context/AppContext"
+import Link from 'next/link'
 import CartItem from "./CartItem"
 
 const CartItemsContainer =()=>{
@@ -57,10 +58,18 @@ const CartItemsContainer =()=>{
                                 </tbody>
                             </table>
 
+                            {/* proceed to checkout */}
+                            <Link href="/checkout">
+                                <button className="btn btn-secondary woo-next-large-black-btn">
+                                    <span className="woo-next-cart-checkout-text">Proceed to Checkout</span>
+                                </button>
+
+                            </Link>
+
                         </div>
                     </div>
                 </div>
-            ):''}
+            ):(<div className="m-5"><h2>No items in the cart</h2></div>)}
         </div>
     )
 }
