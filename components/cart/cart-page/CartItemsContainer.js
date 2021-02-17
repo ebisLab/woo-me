@@ -12,6 +12,8 @@ const CartItemsContainer =()=>{
         //update contex api
         setCart(updateCart)
     }
+
+    console.log("cart", cart)
     return(
         <div>
             {cart ?(

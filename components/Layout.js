@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import { AppProvider } from './context/AppContext';
 import Header from './Header';
-import styles from '../styles/Layout.module.css'
+import client from './ApolloClient'
+import styles from '../styles/Layout.module.css';
+import {ApolloProvider} from '@apollo/client'
 
 const Layout =(props)=>{
     return(
         <AppProvider>
+            <ApolloProvider client={client}>
             <div>
             <Head>
                 <title>
@@ -19,6 +22,7 @@ const Layout =(props)=>{
             <div className={styles.title_name}>hello hello</div>
             {props.children}
         </div>
+        </ApolloProvider>
         </AppProvider>
 
     )
